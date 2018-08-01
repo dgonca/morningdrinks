@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :orders
+  
   before_save { username.downcase! }
   before_save { email.downcase! }
 
