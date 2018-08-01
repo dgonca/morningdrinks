@@ -4,11 +4,23 @@
     <title>Morningdrinks</title>
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <div class="header">
+      <h1 class="headertitle">morning drinks</h1>
+      <nav>
+        <ul>
+          <li><a href="<%= '/index' %>">home</a></li>
+          <li><a href="<%= '/login' %>">login</a></li>
+          <li><a href="<%= '/signup' %>">signup</a></li>
+        </ul>
+      </nav>
+    </div>
     <%= yield %>
   </body>
 </html>
