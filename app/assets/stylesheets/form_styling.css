@@ -1,7 +1,7 @@
 
 
-#signupform {
-  background-color: lightblue;
+.new-form {
+  background-image: url("bgpatterns/inflicted.png");
   width: 400px;
   padding: 10px;
   margin: 0 auto;
@@ -9,18 +9,24 @@
   top: 30px;
   left: 50%;
   transform: translate(-50%, 0);
+  background-attachment: fixed;
+  background-position: center;
 
 }
 
-#signupform h2{
+.new-form h2{
   text-align: center;
+  color: white;
   /*padding: 5px;*/
 }
 
-
-
-form label {
+.new-form label {
   padding-top: 5px;
+  color: white;
+}
+
+.new-form p {
+  color: white;
 }
 
 .row{
@@ -39,4 +45,6 @@ form label {
 #error_explanation ul{
   color: red;
   margin: 0 0 30px 0;
+  width: 70%;
+  margin: 0 auto;
 }

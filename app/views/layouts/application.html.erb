@@ -16,9 +16,16 @@
       <h1 class="headertitle">morning drinks</h1>
       <nav>
         <ul>
-          <li><a href="<%= '/index' %>">home</a></li>
-          <li><a href="<%= '/login' %>">login</a></li>
-          <li><a href="<%= '/signup' %>">signup</a></li>
+          <% if !logged_in? %>
+            <li><a href="<%= '/index' %>">home</a></li>
+            <li><%= link_to "log in", login_path %></li>
+            <li><%= link_to "sign up", signup_path %></li>
+          <% else %>
+            <!-- <li><a href="<%= '/index' %>">home</a></li> -->
+            <li><a href="<%= '/home '%>">home</a></li>
+            <li><%= link_to "log out", logout_path, method: :delete %></li>
+            <li><%= link_to "profile", current_user %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
