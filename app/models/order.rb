@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_one :drink
+  has_many :drinks
 
-  accepts_nested_attributes_for :drink
+  accepts_nested_attributes_for :drinks
 end

@@ -6,6 +6,8 @@
     <div class="form-parts">
       <%= form_for(setup_order(@order)) do |f| %>
 
+          <% hidden_field_tag 'order_status', 'in_progress' %>
+          <% hidden_field_tag 'user_id', current_user.id %>
           <%= f.fields_for :drink do |ff| %>
             <%= ff.label :drink_type %>
             <%= ff.select(:drink_type, options_for_select([['Coffee', 'coffee'],

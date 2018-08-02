@@ -10,13 +10,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    #creating the order as well as the drink
-    p params[:order][:drink_attributes]
-    @order = Order.new(user_id: current_user.id, order_status: "in_progress")
-    @drink = Drink.new(params[:order][:drink_attributes])
-    @drink.order_id = @order.id
-    p @order
-    p @drink
+    @order = Order.create(user_id: current_user.id, order_status: "in-progress")
+    @drink = Drink.new(order_params)
+    @drink.order = @order
+    if @order.save && @drink.save
+      redirect_to current_user
+    else
+      render 'new'
+    end
   end
 
   def destroy
@@ -25,8 +26,17 @@ class OrdersController < ApplicationController
   private
 
   # def drink_params
-  #     params.require(:order[:drink_attributes]).permit(:drink_type, :coffee_type, :sugar_level, :milk_level)
+  #     params.require(:order).permit(:order_status, drinks_attributes: [:id, :drink_type, :coffee_type, :sugar_level, :milk_level])
   # end
+
+  def order_params
+  params.require(:order).permit().tap do |whitelisted|
+    whitelisted[:drink_type] = params[:order][:drink][:drink_type]
+    whitelisted[:coffee_type] = params[:order][:drink][:coffee_type]
+    whitelisted[:sugar_level] = params[:order][:drink][:sugar_level]
+    whitelisted[:milk_level] = params[:order][:drink][:milk_level]
+  end
+end
 
 
 end
