@@ -1,0 +1,37 @@
+<div class="pagestrip" id="neworderstrip">
+  <div class="new-form form-group" id="neworderform">
+    <h2>new order</h2>
+
+  <div class="row">
+    <div class="form-parts">
+      <%= form_for(setup_order(@order)) do |f| %>
+
+          <%= f.fields_for :drink do |ff| %>
+            <%= ff.label :drink_type %>
+            <%= ff.select(:drink_type, options_for_select([['Coffee', 'coffee'],
+                                                                                           ['Tea', 'tea'],
+                                                                                           ['Orange Juice', 'orange_juice']]), { }, {:class => "form-control"})%>
+
+            <%= ff.label :coffee_type %>
+            <%= ff.select(:coffee_type, options_for_select([['Espresso', 'espresso'],
+                                                                                             ['Cappuccino', 'cappuccino'],
+                                                                                             ['Filter', 'filter'],
+                                                                                             ['Greek', 'greek'],
+                                                                                             ['Frappe', 'frappe'],
+                                                                                             ['Latte', 'latte']]), { }, {:class => "form-control"})%>
+
+            <%=  ff.label :sugar_level %>
+            <%= ff.select(:sugar_level, options_for_select([5, 4, 3, 2, 1]), { }, {:class => "form-control"}) %>
+
+            <%=  ff.label :milk_level %>
+            <%= ff.select(:milk_level, options_for_select([5, 4, 3, 2, 1]), { }, {:class => "form-control"})%>
+          <% end %>
+
+        <br>
+          <%= f.submit "Make my order", class: "btn" %>
+
+        <% end %>
+      </div>
+  </div>
+  </div>
+</div>
