@@ -1,0 +1,50 @@
+<script>
+  $(document).ready(function(){
+    limitDrinkAttributes();
+  })
+</script>
+
+<div class="pagestrip" id="neworderstrip">
+  <div class="new-form form-group" id="neworderform">
+    <h2>new order</h2>
+
+  <div class="row">
+    <div class="form-parts">
+      <%= form_for @order, url: {action: "update"} do |f| %>
+
+          <!-- <% hidden_field_tag 'order_status', 'in_progress' %>
+          <% hidden_field_tag 'user_id', current_user.id %> -->
+
+          <%= f.fields_for :drink do |ff| %>
+          <%= ff.label :drink_type, "Drink type:  " %>
+          <!-- <br> -->
+          <div class="form-check form-check-inline">
+
+            <%=  render partial: 'shared/drink_radio', locals: {drink: @drink, ff: ff} %>
+
+          </div>
+          <br>
+
+            <%= ff.label :coffee_type %>
+            <%= ff.select(:coffee_type, options_for_select([['Espresso', 'espresso'],
+                                                                                             ['Cappuccino', 'cappuccino'],
+                                                                                             ['Filter', 'filter'],
+                                                                                             ['Greek', 'greek'],
+                                                                                             ['Frappe', 'frappe'],
+                                                                                             ['Latte', 'latte']], @drink.coffee_type), { }, {:class => "form-control coffee-type-input"})%>
+
+            <%=  ff.label :sugar_level %>
+            <%= ff.select(:sugar_level, options_for_select([5, 4, 3, 2, 1, 0], @drink.sugar_level), { }, {:class => "form-control sugar-level-input"}) %>
+
+            <%=  ff.label :milk_level %>
+            <%= ff.select(:milk_level, options_for_select([5, 4, 3, 2, 1, 0], @drink.milk_level), { }, {:class => "form-control milk-level-input"})%>
+          <% end %>
+
+          <br>
+          <%= f.submit "Make my order", class: "btn" %>
+
+        <% end %>
+      </div>
+  </div>
+  </div>
+</div>

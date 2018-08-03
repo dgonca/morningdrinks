@@ -1,24 +1,6 @@
-# README
+#Morning Drink
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An app to use to keep track of drink orders for your office.
+Easy to use to add orders, and see the progress of your own orders.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The admin takes care of accepting orders and updating their status.

@@ -1,0 +1,55 @@
+<script>
+  $(document).ready(function(){
+    limitDrinkAttributes();
+  })
+</script>
+
+<div class="pagestrip" id="neworderstrip">
+  <div class="new-form form-group" id="neworderform">
+    <h2>new order</h2>
+
+  <div class="row">
+    <div class="form-parts">
+      <%= form_for(setup_order(@order)) do |f| %>
+
+          <% hidden_field_tag 'order_status', 'in_progress' %>
+          <% hidden_field_tag 'user_id', current_user.id %>
+          <%= f.fields_for :drink do |ff| %>
+          <%= ff.label :drink_type, "Drink type:  " %>
+          <!-- <br> -->
+          <div class="form-check form-check-inline">
+
+            <%= ff.radio_button(:drink_type, "coffee", class: "form-check-input coffee-drink") %>
+            <%= ff.label(:drink_type_coffee, "Coffee", class: "form-check-label") %>
+
+            <%= ff.radio_button(:drink_type, "tea", class: "form-check-input tea-drink")  %>
+            <%= ff.label(:drink_type_coffee, "Tea", class: "form-check-label") %>
+
+            <%= ff.radio_button(:drink_type, "orange_juice", class: "form-check-input orange-juice-drink")  %>
+            <%= ff.label(:drink_type_coffee, "Orange Juice", class: "form-check-label") %>
+          </div>
+          <br>
+
+            <%= ff.label :coffee_type %>
+            <%= ff.select(:coffee_type, options_for_select([['Espresso', 'espresso'],
+                                                                                             ['Cappuccino', 'cappuccino'],
+                                                                                             ['Filter', 'filter'],
+                                                                                             ['Greek', 'greek'],
+                                                                                             ['Frappe', 'frappe'],
+                                                                                             ['Latte', 'latte']]), { }, {:class => "form-control coffee-type-input"})%>
+
+            <%=  ff.label :sugar_level %>
+            <%= ff.select(:sugar_level, options_for_select([5, 4, 3, 2, 1, 0]), { }, {:class => "form-control sugar-level-input"}) %>
+
+            <%=  ff.label :milk_level %>
+            <%= ff.select(:milk_level, options_for_select([5, 4, 3, 2, 1, 0]), { }, {:class => "form-control milk-level-input"})%>
+          <% end %>
+
+          <br>
+          <%= f.submit "Make my order", class: "btn" %>
+
+        <% end %>
+      </div>
+  </div>
+  </div>
+</div>

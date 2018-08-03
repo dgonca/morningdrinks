@@ -1,0 +1,31 @@
+<% if @drink.drink_type == 'coffee' %>
+  <%= ff.radio_button(:drink_type, "coffee", checked: true, class: "form-check-input coffee-drink") %>
+  <%= ff.label(:drink_type_coffee, "Coffee", class: "form-check-label") %>
+
+  <%= ff.radio_button(:drink_type, "tea", class: "form-check-input tea-drink")  %>
+  <%= ff.label(:drink_type_tea, "Tea", class: "form-check-label") %>
+
+  <%= ff.radio_button(:drink_type, "orange_juice", class: "form-check-input orange-juice-drink")  %>
+  <%= ff.label(:drink_type_orange_juice, "Orange Juice", class: "form-check-label") %>
+
+<% elsif @drink.drink_type == 'tea' %>
+  <%= ff.radio_button(:drink_type, "coffee", class: "form-check-input coffee-drink") %>
+  <%= ff.label(:drink_type_coffee, "Coffee", class: "form-check-label") %>
+
+  <%= ff.radio_button(:drink_type, "tea", checked: true, class: "form-check-input tea-drink")  %>
+  <%= ff.label(:drink_type_tea, "Tea", class: "form-check-label") %>
+
+  <%= ff.radio_button(:drink_type, "orange_juice", class: "form-check-input orange-juice-drink")  %>
+  <%= ff.label(:drink_type_orange_juice, "Orange Juice", class: "form-check-label") %>
+
+  <% elsif @drink.drink_type == 'orange_juice' %>
+    <%= ff.radio_button(:drink_type, "coffee", class: "form-check-input coffee-drink") %>
+    <%= ff.label(:drink_type_coffee, "Coffee", class: "form-check-label") %>
+
+    <%= ff.radio_button(:drink_type, "tea", class: "form-check-input tea-drink")  %>
+    <%= ff.label(:drink_type_tea, "Tea", class: "form-check-label") %>
+
+    <%= ff.radio_button(:drink_type, "orange_juice", checked: true, class: "form-check-input orange-juice-drink")  %>
+    <%= ff.label(:drink_type_orange_juice, "Orange Juice", class: "form-check-label") %>
+
+  <% end %>

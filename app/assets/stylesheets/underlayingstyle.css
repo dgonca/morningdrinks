@@ -62,6 +62,10 @@ a:hover {
   background-image: url("bgpatterns/old_mathematics.png");
 }
 
+.usersshow {
+  height: 1000px;
+}
+
 /*#introstrip {
   background-image: url('bgpatterns/concrete-texture.png');
 }*/
@@ -72,21 +76,70 @@ a:hover {
   width: 400px;
   height: 250px;
   position: absolute;
-  top: 200px;
+  top: 50px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 
 }
 
-.intro-box h1, .intro-box p, .intro-box h4 {
+.intro-box h1, .intro-box p, .intro-box h4, .intro-box h2 {
   text-align: center;
   padding: 10px;
 }
 
-/*#signupstrip {
-  background-image: url("bgpatterns/light_honeycomb.png");
+.orders-list {
+  height: auto;
 }
 
-#loginstrip {
-  background-image: url("bgpatterns/old_mathematics.png");
-}*/
+.orders-list ul {
+  list-style-type: none;
+  padding: 7px;
+}
+
+.orders-list li{
+  border: 1px solid white;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  /* margin-top: 10px; */
+  margin-bottom: 4px;
+
+
+}
+
+.orders-list li h4, .orders-list p{
+  padding: 0;
+  /* text-align: left; */
+  text-align: center;
+}
+
+.user-title {
+  background-color: gray;
+  margin-left: 10px;
+  width: 230px;
+  text-align: center;
+  padding: 10px;
+  height: auto;
+}
+
+.footer-tag{
+  background-color: gray;
+  position: fixed;
+  bottom: 0px;
+  right: 10px;
+  width: 100px;
+  height: auto;
+  text-align: center;
+  padding: 5px;
+}
+
+.admin-tab{
+  background-color: gray;
+  width: 100px;
+  height: auto;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  text-align: center;
+  padding: 5px;
+}

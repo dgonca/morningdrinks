@@ -25,10 +25,16 @@
             <li><a href="<%= '/home '%>">home</a></li>
             <li><%= link_to "log out", logout_path, method: :delete %></li>
             <li><%= link_to "profile", current_user %></li>
+            <li><%= link_to "new order", new_order_path %></li>
           <% end %>
         </ul>
       </nav>
     </div>
+
     <%= yield %>
+
+<% if logged_in? %>
+    <p class="footer-tag"><a href="<%= new_order_path %>">create a new order</a></p>
+  <% end %>
   </body>
 </html>
