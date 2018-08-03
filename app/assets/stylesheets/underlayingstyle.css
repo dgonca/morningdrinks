@@ -10,14 +10,14 @@ body{
 .header {
   width: 100%;
   height: 150px;
-  background-color: black;
+  background-image: url("bgpatterns/inflicted.png");
 }
 
 .headertitle{
   color: white;
   text-align: center;
   margin: 0 auto;
-  padding-top: 35px;
+  padding-top: 25px;
 }
 
 .header nav{
@@ -59,15 +59,17 @@ a:hover {
   height: 700px;
   background-attachment: fixed;
   background-position: center;
+  background-image: url("bgpatterns/old_mathematics.png");
 }
 
-#introstrip {
+/*#introstrip {
   background-image: url('bgpatterns/concrete-texture.png');
-}
+}*/
 
 .intro-box {
-  background-color: gray;
-  width: 300px;
+  background-image: url("bgpatterns/inflicted.png");
+  color: white;
+  width: 400px;
   height: 250px;
   position: absolute;
   top: 200px;
@@ -76,11 +78,15 @@ a:hover {
 
 }
 
-.intro-box h1, .intro-box p {
+.intro-box h1, .intro-box p, .intro-box h4 {
   text-align: center;
   padding: 10px;
 }
 
-#signupstrip {
+/*#signupstrip {
   background-image: url("bgpatterns/light_honeycomb.png");
 }
+
+#loginstrip {
+  background-image: url("bgpatterns/old_mathematics.png");
+}*/
