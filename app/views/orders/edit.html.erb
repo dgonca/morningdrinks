@@ -10,7 +10,7 @@
 
   <div class="row">
     <div class="form-parts">
-      <%= form_for order_path(@order), method: :put do |f| %>
+      <%= form_for @order, url: {action: "update"} do |f| %>
 
           <!-- <% hidden_field_tag 'order_status', 'in_progress' %>
           <% hidden_field_tag 'user_id', current_user.id %> -->

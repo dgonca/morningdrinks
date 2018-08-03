@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
       render 'new'
     end
   end
+
   def update
   end
 
@@ -28,8 +29,12 @@ class OrdersController < ApplicationController
     @drink = @order.drinks.first
   end
 
-  def put
-
+  def update
+    @order = Order.find(params[:id])
+    @drink = @order.drinks.first
+    @drink.update(order_params)
+    @drink.save
+    redirect_to '/admin'
   end
 
   def complete
@@ -47,15 +52,18 @@ class OrdersController < ApplicationController
     redirect_to '/admin'
   end
 
+  def destroy
+    @order = Order.find(params[:format])
+    @order.delete
+    redirect_to '/admin'
+  end
+
 
 
 
 
   private
 
-  # def drink_params
-  #     params.require(:order).permit(:order_status, drinks_attributes: [:id, :drink_type, :coffee_type, :sugar_level, :milk_level])
-  # end
 
   def order_params
   params.require(:order).permit().tap do |whitelisted|
@@ -64,6 +72,10 @@ class OrdersController < ApplicationController
     whitelisted[:sugar_level] = params[:order][:drink][:sugar_level]
     whitelisted[:milk_level] = params[:order][:drink][:milk_level]
   end
+
+
+
+
 end
 
 

@@ -12,11 +12,11 @@
             <p>Order Status: <%= order.order_status %></p>
             <div>
               <%= link_to "edit", edit_order_path(order), method: :get %>
+              <%= link_to "delete", deleteorder_path(order), method: :delete %>
               <% if order.order_status != "complete" &&  order.order_status != "cancelled"%>
                 <%= link_to "complete", complete_path(order), method: :patch %>
               <% elsif order.order_status != "cancelled" %>
                 <%= link_to "cancel", cancel_path(order), method: :patch %>
-
               <% end %>
             </div>
           </li>

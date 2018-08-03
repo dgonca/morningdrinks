@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/admin', to: 'static_pages#admin'
   patch '/complete', to: 'orders#complete'
   patch '/cancel', to: 'orders#cancel'
+  delete '/deleteorder', to: 'orders#destroy'
 
   resources :users
   resources :orders
