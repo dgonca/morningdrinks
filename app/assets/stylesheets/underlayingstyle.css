@@ -1,0 +1,86 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  font-family: 'Rubik', sans-serif;
+}
+
+.header {
+  width: 100%;
+  height: 150px;
+  background-color: black;
+}
+
+.headertitle{
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 35px;
+}
+
+.header nav{
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.header nav ul {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li {
+  padding: 5px;
+  display: inline;
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: lightblue;
+}
+
+.pagestrip {
+  width: 100%;
+  margin-top: -30px;
+  position: relative;
+  height: 700px;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#introstrip {
+  background-image: url('bgpatterns/concrete-texture.png');
+}
+
+.intro-box {
+  background-color: gray;
+  width: 300px;
+  height: 250px;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.intro-box h1, .intro-box p {
+  text-align: center;
+  padding: 10px;
+}
+
+#signupstrip {
+  background-image: url("bgpatterns/light_honeycomb.png");
+}
