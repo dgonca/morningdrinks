@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.admin = true
+    @user.admin = false
     if @user.save
       log_in @user
       redirect_to @user

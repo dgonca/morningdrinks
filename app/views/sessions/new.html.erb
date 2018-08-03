@@ -7,12 +7,12 @@
       <%= form_for(:session, url: login_path) do |f| %>
           <% if @no_errors == false %>
           <div class="alert alert-danger" role="alert">
-            Invalid email/password combination.
+            Invalid username/password combination.
           </div>
           <% end %>
 
-          <%= f.label :email %>
-          <%= f.email_field :email, class: "form-control" %>
+          <%= f.label :username %>
+          <%= f.text_field :username, class: "form-control" %>
 
           <%= f.label :password %>
           <%= f.password_field :password, class: "form-control" %>
