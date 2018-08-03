@@ -1,0 +1,11 @@
+<div class="pagestrip">
+  <div class="intro-box">
+    <h2>Sorry, we could not find the page you're looking for.</h2>
+    <% if logged_in? %>
+      <h2><a href="<%= '/home' %>">Go Home</a></h2>
+    <% else %>
+      <h2><a href="<%= '/index' %>">Go Home</a></h2>
+    <% end %>
+
+  </div>
+</div>

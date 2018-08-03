@@ -1,0 +1,12 @@
+
+  <% if drink.drink_type != 'orange_juice' %>
+    <h4> <%= drink.drink_type.capitalize %></h4>
+  <% else%>
+    <h4>Orange Juice</h4>
+  <% end %>
+
+  <% if drink.drink_type == "coffee" %>
+    <p>Type: <%= drink.coffee_type %>. <br> Sugar: <%= drink.sugar_level %>. Milk: <%= drink.milk_level %>.</p>
+  <% elsif   drink.drink_type == "tea" %>
+  <p> Sugar: <%= drink.sugar_level %>. Milk: <%= drink.milk_level %>.</p>
+  <% end %>

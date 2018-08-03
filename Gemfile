@@ -33,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'rails-ujs', '~> 0.1.0'
 
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

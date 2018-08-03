@@ -8,23 +8,17 @@
 
           <% order.drinks.each do |drink| %>
           <li>
-            <% if drink.drink_type != 'orange_juice' %>
-              <h4> <%= drink.drink_type.capitalize %></h4>
-            <% else%>
-              <h4>Orange Juice</h4>
-            <% end %>
-
-            <% if drink.drink_type == "coffee" %>
-              <p>Type: <%= drink.coffee_type %>. <br> Sugar: <%= drink.sugar_level %>. Milk: <%= drink.milk_level %>.</p>
-            <% elsif   drink.drink_type == "tea" %>
-            <p> Sugar: <%= drink.sugar_level %>. Milk: <%= drink.milk_level %>.</p>
-            <% end %>
-            <p>Order Status: <%= order.order_status %></p>
-            </li>
+           <%=  render partial: 'shared/drink_listing', locals: {drink: drink} %>
+           <p>Order Status: <%= order.order_status %></p>
+         </li>
           <% end %>
 
       <% end %>
     </ul>
   </div>
 
+
 </div>
+<% if current_user.admin == true %>
+  <p class="admin-tab"><a href="<%= '/admin' %>">ADMIN PANEL</a></p>
+<% end %>

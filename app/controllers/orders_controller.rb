@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def new
+    authenticate!
     @order = Order.new
   end
 
@@ -19,9 +20,36 @@ class OrdersController < ApplicationController
       render 'new'
     end
   end
-
-  def destroy
+  def update
   end
+
+  def edit
+    @order = Order.find(params[:id])
+    @drink = @order.drinks.first
+  end
+
+  def put
+
+  end
+
+  def complete
+    p params
+    @order = Order.find(params[:format])
+    @order.order_status = "complete"
+    @order.save
+    redirect_to '/admin'
+  end
+
+  def cancel
+    @order = Order.find(params[:format])
+    @order.order_status = "cancelled"
+    @order.save
+    redirect_to '/admin'
+  end
+
+
+
+
 
   private
 

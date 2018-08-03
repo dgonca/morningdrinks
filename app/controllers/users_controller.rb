@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.admin = true
     if @user.save
       log_in @user
       redirect_to @user
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    authenticate_user(params[:id], current_user)
     @user = User.find(params[:id])
   end
 

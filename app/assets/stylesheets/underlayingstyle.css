@@ -116,8 +116,10 @@ a:hover {
 .user-title {
   background-color: gray;
   margin-left: 10px;
-  width: 200px;
+  width: 230px;
   text-align: center;
+  padding: 10px;
+  height: auto;
 }
 
 .footer-tag{
@@ -127,6 +129,17 @@ a:hover {
   right: 10px;
   width: 100px;
   height: auto;
+  text-align: center;
+  padding: 5px;
+}
+
+.admin-tab{
+  background-color: gray;
+  width: 100px;
+  height: auto;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
   text-align: center;
   padding: 5px;
 }

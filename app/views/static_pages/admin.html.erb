@@ -1,0 +1,28 @@
+<div class="pagestrip">
+  <h2 class="user-title">the Admin panel</h2>
+
+  <div class=" intro-box orders-list" id="all-orders">
+    <h2>All Orders</h2>
+    <ul>
+    <% @orders.each do |order| %>
+        <% order.drinks.each do |drink| %>
+          <li>
+            <%=  render partial: 'shared/drink_listing', locals: {drink: drink} %>
+            <p>Placed By: <%= order.user.name %></p>
+            <p>Order Status: <%= order.order_status %></p>
+            <div>
+              <%= link_to "edit", edit_order_path(order), method: :get %>
+              <% if order.order_status != "complete" &&  order.order_status != "cancelled"%>
+                <%= link_to "complete", complete_path(order), method: :patch %>
+              <% elsif order.order_status != "cancelled" %>
+                <%= link_to "cancel", cancel_path(order), method: :patch %>
+
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+
+    </ul>
+  </div>
+</div>
