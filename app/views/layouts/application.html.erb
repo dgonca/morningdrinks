@@ -29,6 +29,11 @@
         </ul>
       </nav>
     </div>
+
     <%= yield %>
+
+<% if logged_in? %>
+    <p class="footer-tag"><a href="<%= new_order_path %>">create a new order</a></p>
+  <% end %>
   </body>
 </html>

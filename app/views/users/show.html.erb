@@ -1,3 +1,30 @@
-<div class="pagestrip">
-  <h1>hello <%= @user.name %></h1>
+<div class="pagestrip usersshow">
+  <h1 class="user-title">Welcome <%= @user.name.capitalize %></h1>
+
+  <div class="intro-box orders-list">
+    <h2>Your Orders:</h2>
+    <ul>
+      <% @user.orders.each do |order| %>
+
+          <% order.drinks.each do |drink| %>
+          <li>
+            <% if drink.drink_type != 'orange_juice' %>
+              <h4> <%= drink.drink_type.capitalize %></h4>
+            <% else%>
+              <h4>Orange Juice</h4>
+            <% end %>
+
+            <% if drink.drink_type == "coffee" %>
+              <p>Type: <%= drink.coffee_type %>. <br> Sugar: <%= drink.sugar_level %>. Milk: <%= drink.milk_level %>.</p>
+            <% elsif   drink.drink_type == "tea" %>
+            <p> Sugar: <%= drink.sugar_level %>. Milk: <%= drink.milk_level %>.</p>
+            <% end %>
+            <p>Order Status: <%= order.order_status %></p>
+            </li>
+          <% end %>
+
+      <% end %>
+    </ul>
+  </div>
+
 </div>

@@ -15,4 +15,12 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def authenticate!
+    redirect_to '/404' if !logged_in?
+  end
+
+  def authenticate_user(user_id)!
+    redirect_to '/404' if user_id != @current_user.id
+  end
 end
