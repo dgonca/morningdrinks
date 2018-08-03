@@ -45,6 +45,16 @@ class OrdersController < ApplicationController
     redirect_to '/admin'
   end
 
+
+
+  def allow
+    @order = Order.find(params[:order_id])
+    @order.accept = params[:accept]
+    @order.comment = params[:comment][:text]
+    @order.save
+    redirect_to '/admin'
+  end
+
   def cancel
     @order = Order.find(params[:format])
     @order.order_status = "cancelled"

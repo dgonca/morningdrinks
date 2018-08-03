@@ -10,3 +10,15 @@
   <% elsif   drink.drink_type == "tea" %>
   <p> Sugar: <%= drink.sugar_level %>. Milk: <%= drink.milk_level %>.</p>
   <% end %>
+
+  <p>Order Status: <%= order.order_status %></p>
+
+  <% if order.accept == true %>
+    <p>Order Accepted</p>
+    <p>order.comment</p>
+  <% elsif order.accept == false  %>
+    <p>Order Denied</p>
+    <p>Comments: <%= order.comment %></p>
+  <% else %>
+    <p>Order not processed yet</p>
+  <% end %>

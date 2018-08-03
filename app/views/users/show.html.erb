@@ -8,8 +8,8 @@
 
           <% order.drinks.each do |drink| %>
           <li>
-           <%=  render partial: 'shared/drink_listing', locals: {drink: drink} %>
-           <p>Order Status: <%= order.order_status %></p>
+           <%=  render partial: 'shared/drink_listing', locals: {drink: drink, order: order} %>
+             
          </li>
           <% end %>
 

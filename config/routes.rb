@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   patch '/complete', to: 'orders#complete'
   patch '/cancel', to: 'orders#cancel'
   delete '/deleteorder', to: 'orders#destroy'
+  patch '/allow', to: 'orders#allow'
 
   resources :users
   resources :orders

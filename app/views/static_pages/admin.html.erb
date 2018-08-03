@@ -7,18 +7,36 @@
     <% @orders.each do |order| %>
         <% order.drinks.each do |drink| %>
           <li>
-            <%=  render partial: 'shared/drink_listing', locals: {drink: drink} %>
+            <%=  render partial: 'shared/drink_listing', locals: {drink: drink, order: order} %>
             <p>Placed By: <%= order.user.name %></p>
-            <p>Order Status: <%= order.order_status %></p>
-            <div>
-              <%= link_to "edit", edit_order_path(order), method: :get %>
-              <%= link_to "delete", deleteorder_path(order), method: :delete %>
-              <% if order.order_status != "complete" &&  order.order_status != "cancelled"%>
-                <%= link_to "complete", complete_path(order), method: :patch %>
-              <% elsif order.order_status != "cancelled" %>
-                <%= link_to "cancel", cancel_path(order), method: :patch %>
-              <% end %>
-            </div>
+
+            <% if order.accept != true && order.accept != false %>
+              <div>
+                <%= form_tag({:controller=>"orders", :action=>"allow"}, method: :patch) do %>
+                  <%= hidden_field_tag 'order_id', order.id %>
+                  <%= radio_button_tag(:accept, "true") %>
+                  <%= label_tag(:accept, "Accept") %>
+                  <%= radio_button_tag(:accept, "false") %>
+                  <%= label_tag(:accept, "Deny") %>
+                  <br>
+                  <%= label_tag(:comment, "Comments: ") %>
+                  <%= text_area(:comment, :text) %>
+                  <br>
+                  <%= submit_tag "Submit", class: "btn btn-outline-light btn-sm" %>
+                <% end %>
+
+              </div>
+            <% else %>
+              <div>
+                <%= link_to "edit", edit_order_path(order), method: :get %>
+                <%= link_to "delete", deleteorder_path(order), method: :delete %>
+                <% if order.order_status != "complete" &&  order.order_status != "cancelled"%>
+                  <%= link_to "complete", complete_path(order), method: :patch %>
+                <% elsif order.order_status != "cancelled" %>
+                  <%= link_to "cancel", cancel_path(order), method: :patch %>
+                <% end %>
+              </div>
+            <% end %>
           </li>
         <% end %>
       <% end %>
